@@ -51,31 +51,67 @@ public class Main {
 
         //task 2
 
-        List<String> cities = Arrays.asList("Київ", "Львів", "Харків", "Одеса", "Дніпро", "Запоріжжя", "Київ", "Одеса", "Львів");
+//        List<String> cities = Arrays.asList("Київ", "Львів", "Харків", "Одеса", "Дніпро", "Запоріжжя", "Київ", "Одеса", "Львів");
+//
+//        System.out.println("Всі міста:");
+//        System.out.println(cities);
+//
+//        System.out.println("Міста довжиною більше шести символів:");
+//        cities.stream()
+//                .filter(city -> city.length() > 6)
+//                .forEach(System.out::println);
+//
+//        System.out.println("Введіть назву міста для пошуку:");
+//        String searchCity = scanner.nextLine();
+//        long count = cities.stream()
+//                .filter(city -> city.equalsIgnoreCase(searchCity))
+//                .count();
+//        System.out.println("Місто \"" + searchCity + "\" зустрічається " + count + " раз(и).");
+//
+//        System.out.println("Введіть букву для пошуку міст:");
+//        char letter = scanner.next().charAt(0);
+//        long citiesCount = cities.stream()
+//                .filter(city -> city.toLowerCase().charAt(0) == Character.toLowerCase(letter))
+//                .count();
+//        System.out.println("Кількість міст на букву \"" + letter + "\": " + citiesCount);
+//
+//        scanner.close();
 
-        System.out.println("Всі міста:");
-        System.out.println(cities);
+        //task 3
+        List<Automobile> automobiles = new ArrayList<>();
+        automobiles.add(new Automobile("Toyota Camry", 2020, 25000, "black", 2.5));
+        automobiles.add(new Automobile("BMW X5", 2018, 40000, "white", 3.0));
+        automobiles.add(new Automobile("Honda Civic", 2019, 20000, "red", 1.8));
+        automobiles.add(new Automobile("Mercedes-Benz E-Class", 2017, 35000, "silver", 2.0));
+        automobiles.add(new Automobile("Ford Mustang", 2016, 30000, "blue", 5.0));
+        
+        System.out.println("Всі автомобілі:");
+        automobiles.forEach(System.out::println);
 
-        System.out.println("Міста довжиною більше шести символів:");
-        cities.stream()
-                .filter(city -> city.length() > 6)
+        String color = "red";
+        System.out.println("\nАвтомобілі кольору " + color + ":");
+        automobiles.stream()
+                .filter(auto -> auto.getColor().equalsIgnoreCase(color))
                 .forEach(System.out::println);
 
-        System.out.println("Введіть назву міста для пошуку:");
-        String searchCity = scanner.nextLine();
-        long count = cities.stream()
-                .filter(city -> city.equalsIgnoreCase(searchCity))
-                .count();
-        System.out.println("Місто \"" + searchCity + "\" зустрічається " + count + " раз(и).");
+        double engineVolume = 2.0;
+        System.out.println("\nАвтомобілі з об'ємом двигуна " + engineVolume + " л:");
+        automobiles.stream()
+                .filter(auto -> auto.getEngineVolume() == engineVolume)
+                .forEach(System.out::println);
 
-        System.out.println("Введіть букву для пошуку міст:");
-        char letter = scanner.next().charAt(0);
-        long citiesCount = cities.stream()
-                .filter(city -> city.toLowerCase().charAt(0) == Character.toLowerCase(letter))
-                .count();
-        System.out.println("Кількість міст на букву \"" + letter + "\": " + citiesCount);
+        double minPrice = 30000;
+        System.out.println("\nАвтомобілі дорожчі " + minPrice + " USD:");
+        automobiles.stream()
+                .filter(auto -> auto.getPrice() > minPrice)
+                .forEach(System.out::println);
 
-        scanner.close();
-
+        int minYear = 2017;
+        int maxYear = 2019;
+        System.out.println("\nАвтомобілі випущені з " + minYear + " по " + maxYear + " рік:");
+        automobiles.stream()
+                .filter(auto -> auto.getYear() >= minYear && auto.getYear() <= maxYear)
+                .forEach(System.out::println);
     }
 }
+
