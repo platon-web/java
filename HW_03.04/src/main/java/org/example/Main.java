@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import static org.example.Device.*;
 import static org.example.NumberStats.*;
+import static org.example.Projector.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -106,6 +107,35 @@ public class Main {
 //        displayDevicesByYearRange(devices, 2019, 2021);
 
         //task 4
-        
+        List<Projector> projectors = new ArrayList<>();
+        projectors.add(new Projector("Epson 3020", 2018, 899.99, "Epson"));
+        projectors.add(new Projector("BenQ TK800", 2020, 1299.99, "BenQ"));
+        projectors.add(new Projector("Optoma HD146X", 2021, 549.99, "Optoma"));
+        projectors.add(new Projector("Sony VPL-HW45ES", 2019, 1999.99, "Sony"));
+        projectors.add(new Projector("LG CineBeam HU80KSW", 2021, 2499.99, "LG"));
+
+        System.out.println("Усі проектори:");
+        displayProjectors(projectors);
+
+        System.out.println("\nПроектори виробника Epson:");
+        displayProjectorsByManufacturer(projectors, "Epson");
+
+        System.out.println("\nПроектори випущені в 2021 році:");
+        displayProjectorsByYear(projectors, 2021);
+
+        System.out.println("\nПроектори дорожчі за $1000:");
+        displayProjectorsAbovePrice(projectors, 1000);
+
+        System.out.println("\nПроектори, відсортовані за ціною зростання:");
+        displayProjectorsSortedByPriceAscending(projectors);
+
+        System.out.println("\nПроектори, відсортовані за ціною спадання:");
+        displayProjectorsSortedByPriceDescending(projectors);
+
+        System.out.println("\nПроектори, відсортовані за роком випуску зростання:");
+        displayProjectorsSortedByYearAscending(projectors);
+
+        System.out.println("\nПроектори, відсортовані за роком випуску спадання:");
+        displayProjectorsSortedByYearDescending(projectors);
     }
 }
