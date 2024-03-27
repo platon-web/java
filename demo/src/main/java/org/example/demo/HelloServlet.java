@@ -148,27 +148,35 @@ public class HelloServlet extends HttpServlet {
 
 
     //task 6
-//    public void doPost(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
-//        response.setContentType("text/html");
-//        PrintWriter out = response.getWriter();
-//
-//        String fullName = request.getParameter("fullName");
-//        String phone = request.getParameter("phone");
-//        String email = request.getParameter("email");
-//        int age = Integer.parseInt(request.getParameter("age"));
-//        String gender = request.getParameter("gender");
-//
-//        out.println("<html>");
-//        out.println("<head><title>Анкета</title></head>");
-//        out.println("<body>");
-//        out.println("<h2>Ваші дані:</h2>");
-//        out.println("<p>ПІБ: " + fullName + "</p>");
-//        out.println("<p>Телефон: " + phone + "</p>");
-//        out.println("<p>Email: " + email + "</p>");
-//        out.println("<p>Вік: " + age + "</p>");
-//        out.println("<p>Стать: " + gender + "</p>");
-//        out.println("</body></html>");
-//    }
+    public void doPost(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
+        String fullName = request.getParameter("fullName");
+        String phone = request.getParameter("phone");
+        String email = request.getParameter("email");
+        String ageStr = request.getParameter("age");
+        String gender = request.getParameter("gender");
+
+        int age = 0;
+        try {
+            age = Integer.parseInt(ageStr);
+            if (age <= 0 || age > 150) {
+                throw new NumberFormatException();
+            }
+        } catch (NumberFormatException e) {
+            response.getWriter().println("Помилка: Введіть коректний вік.");
+            return;
+        }
+
+        response.setContentType("text/html");
+        response.getWriter().println("<h2>Інформація про користувача:</h2>");
+        response.getWriter().println("<p>ПІБ: " + fullName + "</p>");
+        response.getWriter().println("<p>Телефон: " + phone + "</p>");
+        response.getWriter().println("<p>Email: " + email + "</p>");
+        response.getWriter().println("<p>Вік: " + age + "</p>");
+        response.getWriter().println("<p>Стать: " + gender + "</p>");
+    }
+
+
+
     public void destroy() {
     }
 }
