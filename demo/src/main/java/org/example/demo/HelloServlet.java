@@ -110,23 +110,23 @@ public class HelloServlet extends HttpServlet {
 //
 //        out.println("</body></html>");
 //    }
-    @Override
-    public  void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
+  //  @Override
+ //   public  void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      //  PrintWriter out = response.getWriter();
         /* task 4 */
-        String fullName = request.getParameter("fullName");
-        String phone = request.getParameter("phone");
-        String email = request.getParameter("email");
-        int age = Integer.parseInt(request.getParameter("age"));
-
-        response.setContentType("text/html");
-        out.println("<html><head><title>Survey Results</title></head><body>");
-        out.println("<h2>Survey Results:</h2>");
-        out.println("<p>Full Name: " + fullName + "</p>");
-        out.println("<p>Phone: " + phone + "</p>");
-        out.println("<p>Email: " + email + "</p>");
-        out.println("<p>Age: " + age + "</p>");
-        out.println("</body></html>");
+//        String fullName = request.getParameter("fullName");
+//        String phone = request.getParameter("phone");
+//        String email = request.getParameter("email");
+//        int age = Integer.parseInt(request.getParameter("age"));
+//
+//        response.setContentType("text/html");
+//        out.println("<html><head><title>Survey Results</title></head><body>");
+//        out.println("<h2>Survey Results:</h2>");
+//        out.println("<p>Full Name: " + fullName + "</p>");
+//        out.println("<p>Phone: " + phone + "</p>");
+//        out.println("<p>Email: " + email + "</p>");
+//        out.println("<p>Age: " + age + "</p>");
+//        out.println("</body></html>");
 
         /* task 5 */
 //        String fullName = request.getParameter("fullName");
@@ -144,7 +144,31 @@ public class HelloServlet extends HttpServlet {
 //        out.println("<p>Age: " + age + "</p>");
 //        out.println("<p>Subscribe to newsletter: " + (subscribe != null ? "Yes" : "No") + "</p>");
 //        out.println("</body></html>");
-    }
+   // }
+
+
+    //task 6
+//    public void doPost(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
+//        response.setContentType("text/html");
+//        PrintWriter out = response.getWriter();
+//
+//        String fullName = request.getParameter("fullName");
+//        String phone = request.getParameter("phone");
+//        String email = request.getParameter("email");
+//        int age = Integer.parseInt(request.getParameter("age"));
+//        String gender = request.getParameter("gender");
+//
+//        out.println("<html>");
+//        out.println("<head><title>Анкета</title></head>");
+//        out.println("<body>");
+//        out.println("<h2>Ваші дані:</h2>");
+//        out.println("<p>ПІБ: " + fullName + "</p>");
+//        out.println("<p>Телефон: " + phone + "</p>");
+//        out.println("<p>Email: " + email + "</p>");
+//        out.println("<p>Вік: " + age + "</p>");
+//        out.println("<p>Стать: " + gender + "</p>");
+//        out.println("</body></html>");
+//    }
     public void destroy() {
     }
 }
