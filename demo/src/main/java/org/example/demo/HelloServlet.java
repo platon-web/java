@@ -110,7 +110,6 @@ public class HelloServlet extends HttpServlet {
 //
 //        out.println("</body></html>");
 //    }
-  //  @Override
  //   public  void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       //  PrintWriter out = response.getWriter();
         /* task 4 */
@@ -147,7 +146,7 @@ public class HelloServlet extends HttpServlet {
    // }
 
 
-    //task 6
+    //task 6 7
     public void doPost(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
         String fullName = request.getParameter("fullName");
         String phone = request.getParameter("phone");
