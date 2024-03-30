@@ -26,6 +26,8 @@
             max-width: 80%;
             height: auto;
             margin-bottom: 10px;
+            max-height: 400px;
+            max-width: 400px;
         }
         a {
             color: #007bff;
@@ -71,7 +73,13 @@
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Bila_Tserkva_Montage.png" alt="Historical Image 1">
 <a href="https://uk.wikipedia.org/wiki/%D0%91%D1%96%D0%BB%D0%B0_%D0%A6%D0%B5%D1%80%D0%BA%D0%B2%D0%B0">Learn more</a>
-
+<div class="Hotel">
+    <img src="https://alfresco.com.ua/wp-content/uploads/2023/12/alfresco_main.jpg" alt="restoran">
+    <p>Ресторан- італійської кухні</p>
+    <img src="https://bt.ribasrooms.com/wp-content/uploads/sites/3/2023/06/ribas_rooms_002-scaled.jpg" alt="hotel">
+    <p> Hotel – готель, де хочеться залишитися на довше, навіть якщо Ви приїхали в бізнес-відрядження. Зручне розташування, в пішій доступності абсолютно все, що може знадобитися мандрівникові.</p>
+    <a href="https://bt.ribasrooms.com/">Посилання на готель</a>
+</div>
 </body>
 </html>
 
