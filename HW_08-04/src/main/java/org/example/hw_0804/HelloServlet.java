@@ -15,12 +15,12 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.getRequestDispatcher("/manufacturer-info.html").forward(request, response);
-        request.getRequestDispatcher("/navigation-menu.html").forward(request, response);
-        request.getRequestDispatcher("/manuFacturer-history.html").forward(request, response);
-        request.getRequestDispatcher("/news.html").forward(request, response);
-        request.getRequestDispatcher("/full-news.html").forward(request, response);
-        request.getRequestDispatcher("/laptop-models.html").forward(request, response);
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/navigation-menu.jsp").forward(request, response);
+        request.getRequestDispatcher("/manuFacturer-history.jsp").forward(request, response);
+        request.getRequestDispatcher("/news.jsp").forward(request, response);
+        request.getRequestDispatcher("/full-news.jsp").forward(request, response);
+        request.getRequestDispatcher("/laptop-models.jsp").forward(request, response);
     }
 
 
