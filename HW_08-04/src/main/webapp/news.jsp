@@ -15,13 +15,13 @@
 <div class="news-item">
     <h2>News Title 1</h2>
     <p>Short description of the news. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <img src="news-image1.jpg" alt="News Image 1">
+    <img src="https://www.asus.com/campaign/aura/upload/news/20171229110025_news.jpg" alt="News Image 1">
     <a href="/full-news1">Read more</a>
 </div>
 <div class="news-item">
     <h2>News Title 2</h2>
     <p>Short description of the news. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <img src="news-image2.jpg" alt="News Image 2">
+    <img src="https://www.asus.com/campaign/aura/upload/news/20171229110025_news.jpg" alt="News Image 2">
     <a href="/full-news2">Read more</a>
 </div>
 </body>

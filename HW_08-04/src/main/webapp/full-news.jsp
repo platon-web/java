@@ -12,8 +12,8 @@
 </head>
 <body>
 <h1>Full News Title</h1>
-<p>Full description of the news. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-<img src="full-news-image.jpg" alt="Full News Image">
+<p>На GTC 2024 представлено повний стек новітніх рішень для суперкомп’ютерних ШІ-обчислень</p>
+<img src="https://www.asus.com/campaign/aura/upload/news/20171229110025_news.jpg" alt="Full News Image">
 <a href="/manufacturer-news">Back to News</a>
 </body>
 </html>
