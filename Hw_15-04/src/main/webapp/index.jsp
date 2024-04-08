@@ -74,14 +74,70 @@
 <%--</script>--%>
 
 <%--task 4--%>
-<h2>Random Quote</h2>
-<label for="categorySelect">Select a category:</label>
-<select id="categorySelect" onchange="displayRandomQuote()">
-    <option value="education">Education</option>
-    <option value="personalDevelopment">Personal Development</option>
-    <option value="relationships">Relationships</option>
-    <option value="history">History</option>
-</select>
+<%--<h2>Random Quote</h2>--%>
+<%--<label for="categorySelect">Select a category:</label>--%>
+<%--<select id="categorySelect" onchange="displayRandomQuote()">--%>
+<%--    <option value="education">Education</option>--%>
+<%--    <option value="personalDevelopment">Personal Development</option>--%>
+<%--    <option value="relationships">Relationships</option>--%>
+<%--    <option value="history">History</option>--%>
+<%--</select>--%>
+<%--<br><br>--%>
+<%--<div id="quoteDisplay"></div>--%>
+
+<%--<script>--%>
+<%--    var quotesByCategory = {--%>
+<%--        education: [--%>
+<%--            "Education is the most powerful weapon which you can use to change the world. - Nelson Mandela",--%>
+<%--            "The only true wisdom is in knowing you know nothing. - Socrates",--%>
+<%--            "Education is not the filling of a pail, but the lighting of a fire. - William Butler Yeats"--%>
+<%--        ],--%>
+<%--        personalDevelopment: [--%>
+<%--            "You must be the change you wish to see in the world. - Mahatma Gandhi",--%>
+<%--            "The only way to do great work is to love what you do. - Steve Jobs",--%>
+<%--            "The journey of a thousand miles begins with one step. - Lao Tzu"--%>
+<%--        ],--%>
+<%--        relationships: [--%>
+<%--            "The greatest glory in living lies not in never falling, but in rising every time we fall. - Nelson Mandela",--%>
+<%--            "The only way to have a friend is to be one. - Ralph Waldo Emerson",--%>
+<%--            "Keep love in your heart. A life without it is like a sunless garden when the flowers are dead. - Oscar Wilde"--%>
+<%--        ],--%>
+<%--        history: [--%>
+<%--            "Those who cannot remember the past are condemned to repeat it. - George Santayana",--%>
+<%--            "History will be kind to me for I intend to write it. - Winston Churchill",--%>
+<%--            "History is a relentless master. It has no present, only the past rushing into the future. - Dwight D. Eisenhower"--%>
+<%--        ]--%>
+<%--    };--%>
+
+<%--    function displayRandomQuote() {--%>
+<%--        var categorySelect = document.getElementById("categorySelect");--%>
+<%--        var category = categorySelect.value;--%>
+<%--        var quotes = quotesByCategory[category];--%>
+<%--        var randomIndex = Math.floor(Math.random() * quotes.length);--%>
+<%--        var quoteDisplay = document.getElementById("quoteDisplay");--%>
+<%--        quoteDisplay.textContent = quotes[randomIndex];--%>
+<%--    }--%>
+
+<%--    // Display a random quote when the page loads--%>
+<%--    displayRandomQuote();--%>
+<%--</script>--%>
+
+
+
+<%--task 5--%>
+<h2>Add a Quote</h2>
+<form action="AddQuoteServlet" method="post">
+    <label for="quote">Quote:</label><br>
+    <textarea id="quote" name="quote" rows="4" cols="50"></textarea><br>
+    <label for="author">Author:</label><br>
+    <input type="text" id="author" name="author"><br>
+    <label for="category">Category:</label><br>
+    <input type="text" id="category" name="category"><br><br>
+    <input type="submit" value="Submit">
+</form>
+<br><br>
+<label for="searchKeyword">Search keyword:</label>
+<input type="text" id="searchKeyword" oninput="displayQuotesContainingKeyword()">
 <br><br>
 <div id="quoteDisplay"></div>
 
@@ -118,9 +174,28 @@
         quoteDisplay.textContent = quotes[randomIndex];
     }
 
-    // Display a random quote when the page loads
+    function displayQuotesContainingKeyword() {
+        var keywordInput = document.getElementById("searchKeyword");
+        var keyword = keywordInput.value.toLowerCase();
+        var quotes = [];
+        for (var category in quotesByCategory) {
+            quotes = quotes.concat(quotesByCategory[category]);
+        }
+        var filteredQuotes = quotes.filter(function(quote) {
+            return quote.toLowerCase().includes(keyword);
+        });
+        var quoteDisplay = document.getElementById("quoteDisplay");
+        quoteDisplay.textContent = filteredQuotes.join("\n");
+    }
+
     displayRandomQuote();
 </script>
+
+
+
+<%--task 6--%>
+
+
 
 </body>
 </html>
