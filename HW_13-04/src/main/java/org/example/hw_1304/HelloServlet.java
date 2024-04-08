@@ -25,13 +25,7 @@ public class HelloServlet extends HttpServlet {
 
         try {
             Connection conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
-            if (action.equals("viewSellers")) {
-                viewSellers(conn, request, response);
-            } else if (action.equals("viewBuyers")) {
-                viewBuyers(conn, request, response);
-            } else if (action.equals("viewProducts")) {
-                viewProducts(conn, request, response);
-            } else if (action.equals("viewDeals")) {
+            if (action.equals("viewDeals")) {
                 viewDeals(conn, response);
             } else if (action.equals("viewDealsByDate")) {
                 String date = request.getParameter("date");
@@ -46,6 +40,8 @@ public class HelloServlet extends HttpServlet {
             } else if (action.equals("viewDealsByBuyer")) {
                 String buyerId = request.getParameter("buyerId");
                 viewDealsByBuyer(conn, buyerId, response);
+            } else {
+                response.getWriter().println("Invalid action specified.");
             }
             conn.close();
         } catch (SQLException e) {
