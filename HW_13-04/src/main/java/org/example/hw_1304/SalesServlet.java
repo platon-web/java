@@ -1,19 +1,18 @@
 package org.example.hw_1304;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.sql.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/HelloServlet")
-public class HelloServlet extends HttpServlet {
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/java_db";
-    private static final String JDBC_USER = "root";
-    private static final String JDBC_PASSWORD = "";
+@WebServlet("/SalesServlet")
+public class SalesServlet extends HttpServlet {
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/sales_db";
+    private static final String JDBC_USER = "your_username";
+    private static final String JDBC_PASSWORD = "your_password";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -25,8 +24,14 @@ public class HelloServlet extends HttpServlet {
 
         try {
             Connection conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
-            if (action.equals("viewDeals")) {
-                viewDeals(conn, response);
+            if (action.equals("viewSellers")) {
+                viewSellers(conn, request, response);
+            } else if (action.equals("viewBuyers")) {
+                viewBuyers(conn, request, response);
+            } else if (action.equals("viewProducts")) {
+                viewProducts(conn, request, response);
+            } else if (action.equals("viewDeals")) {
+                viewDeals(conn, request, response);
             } else if (action.equals("viewDealsByDate")) {
                 String date = request.getParameter("date");
                 viewDealsByDate(conn, date, response);
@@ -40,8 +45,6 @@ public class HelloServlet extends HttpServlet {
             } else if (action.equals("viewDealsByBuyer")) {
                 String buyerId = request.getParameter("buyerId");
                 viewDealsByBuyer(conn, buyerId, response);
-            } else {
-                response.getWriter().println("Invalid action specified.");
             }
             conn.close();
         } catch (SQLException e) {
@@ -49,7 +52,6 @@ public class HelloServlet extends HttpServlet {
             response.getWriter().println("Database connection error: " + e.getMessage());
         }
     }
-
 
     private void viewDeals(Connection conn, HttpServletResponse response) throws ServletException, IOException, SQLException {
         String query = "SELECT * FROM sales";
