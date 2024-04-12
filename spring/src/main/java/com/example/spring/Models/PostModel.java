@@ -1,9 +1,9 @@
 package com.example.spring.Models;
 
+import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 
@@ -17,10 +17,9 @@ public class PostModel {
 
     private LocalDate data;
 
-    public PostModel(String title, String description, LocalDate data){
+    public PostModel(String title, String description){
         this.title= title;
         this.description = description;
-        this.data = LocalDate.now();
     }
 
     public PostModel() {
@@ -29,6 +28,10 @@ public class PostModel {
 
     public long getId(){
 return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitle() {
