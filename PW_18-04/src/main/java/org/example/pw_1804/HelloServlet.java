@@ -1,5 +1,3 @@
-package org.example.pw_1804;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -41,9 +39,9 @@ public class QuizServlet extends HttpServlet {
             while (rs.next() && questionIndex <= currentIndex) {
                 if (questionIndex == currentIndex) {
                     String question = rs.getString("question");
-                    int timeLimit = TIME_LIMIT_PER_QUESTION_SECONDS; // Заданий час на кожне питання (у секундах)
+                    int timeLimit = TIME_LIMIT_PER_QUESTION_SECONDS;
                     request.setAttribute("timeLimit", timeLimit);
-                    request.setAttribute("currentIndex", currentIndex + 1); // Індекс наступного питання
+                    request.setAttribute("currentIndex", currentIndex + 1);
                     request.getRequestDispatcher("quiz.jsp").forward(request, response);
                     break;
                 }
