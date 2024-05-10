@@ -22,6 +22,11 @@ public class Blog {
     public Blog() {
 
     }
+    public Blog( String title, String description) {
+        this.title = title;
+        this.description = description;
+        this.createdAt = LocalDateTime.now();
+    }
     public Blog(User user, String title, String description, List<Recipe> recipes) {
         this.user = user;
         this.title = title;
@@ -68,5 +73,13 @@ public class Blog {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

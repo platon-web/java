@@ -6,6 +6,21 @@
     <title>Edit recipe</title>
 </head>
 <body>
-
+<header th:insert="Componets/header::header"></header>
+<div class="container">
+    <h2>Recipe Edit</h2>
+    <form method="post" th:action="'/recipe/'+${recipe.getId()}+'/edit'">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Edit title</span>
+            <input name="title" type="text" class="form-control"  aria-describedby="basic-addon1" placeholder="input title" th:value="${recipe.getTitle()}">
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Edit description</span>
+            <textarea name="description" class="form-control" aria-label="With textarea" placeholder="description" th:value="${recipe.getDescription()}" rows="4"></textarea>
+        </div>
+        <input class="btn btn-success" type="submit" value="Save">
+    </form>
+</div>
+<footer th:insert="Componets/footer::footer"></footer>
 </body>
 </html>

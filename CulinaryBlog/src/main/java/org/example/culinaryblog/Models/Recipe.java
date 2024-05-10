@@ -35,7 +35,13 @@ public class Recipe {
     public Recipe() {
 
     }
-
+    public Recipe(String title, String description, String ingredients, String instructions) {
+        this.title = title;
+        this.description = description;
+        this.ingredients = ingredients;
+        this.instructions = instructions;
+        this.createdAt = LocalDateTime.now();
+    }
     public Recipe(User user, Blog blog, String title, String description,
                   String ingredients, String instructions, List<Comment> comments, List<Rating> ratings) {
         this.user = user;
@@ -118,5 +124,13 @@ public class Recipe {
 
     public void setRatings(List<Rating> ratings) {
         this.ratings = ratings;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }
