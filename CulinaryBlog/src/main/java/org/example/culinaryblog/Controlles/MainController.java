@@ -53,4 +53,12 @@ public class MainController {
         model.addAttribute("users", iUserRepository.findById(id));
         return "Pages/profile";
     }
+    @GetMapping("/contact")
+    public String contact() {
+        return "Pages/contact";
+    }
+    @GetMapping("/about")
+    public String about() {
+        return "Pages/about";
+    }
 }

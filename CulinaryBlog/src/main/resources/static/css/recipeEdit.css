@@ -1,5 +1,6 @@
-/* Custom CSS for Edit Recipe Page */
+/* Custom CSS for Recipe Edit Page */
 body {
+    overflow:  hidden;
     background-color: #f8f9fa;
     color: #343a40;
     font-family: Arial, sans-serif;
@@ -22,6 +23,11 @@ h2 {
 .input-group-text,
 .form-control {
     border-radius: 0;
+}
+
+/* Remove scroll bar from textarea */
+.form-control {
+    overflow: hidden;
 }
 
 .btn-success {
